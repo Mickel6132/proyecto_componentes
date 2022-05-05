@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Mickel Loza') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,13 +19,39 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="" style="background: #8B8BA7">
+
+
+    
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm" style="background: #676787">
+            <div class="container" >
+                <a class="navbar-brand text-white" href="{{ url('/') }}">
+             Venta de componentes informaticos
                 </a>
+
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+  <div  class="collapse navbar-collapse" style="margin-left: 41%; ">
+    <div class="navbar-nav">
+
+     @guest
+     @else
+    
+       <a class="btn btn-dark text-white" href="">Usuarios</a> &nbsp
+
+      <a class="btn btn-dark text-white" href="{{route('clientes')}}">Clientes</a> &nbsp
+
+      <a class=" btn btn-dark text-white" href="{{route('componentes')}}">Componentes</a> &nbsp
+
+     <a class="btn btn-dark text-white" href="{{route('ventas')}}">Ventas</a> &nbsp
+
+      <a class="btn btn-dark text-white" href="{{route('facturas.index')}}">Facturas</a> &nbsp
+
+    
+     @endguest
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -70,11 +96,18 @@
                     </ul>
                 </div>
             </div>
+           </div>
+          </div>
+      </nav>
+  </div>
+
+          </nav>
+
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    
 </body>
 </html>

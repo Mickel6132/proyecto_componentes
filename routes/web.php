@@ -1,3 +1,5 @@
+
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -20,3 +22,42 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/clientes', 'ClienteController@index')->name('clientes');
+
+Route::get('/clientes/create','ClienteController@create')->name('clientes.create');
+
+Route::post('/clientes/store','ClienteController@store')->name('clientes.store');
+
+Route::get('/clientes/edit/{cli_id}','ClienteController@edit')->name('clientes.edit');
+
+Route::post('/clientes/update/{cli_id}','ClienteController@update')->name('clientes.update');
+
+Route::post('/clientes/destroy/{cli_id}','ClienteController@destroy')->name('clientes.destroy');
+
+Route::get('/componentes', 'ComponenteController@index')->name('componentes');
+
+Route::get('/componentes/create','ComponenteController@create')->name('componentes.create');
+
+Route::post('/componentes/store','ComponenteController@store')->name('componentes.store');
+
+Route::get('/componentes/edit/{comp_id}','ComponenteController@edit')->name('componentes.edit');
+
+Route::post('/componentes/update/{comp_id}','ComponenteController@update')->name('componentes.update');
+
+Route::post('/componentes/destroy/{comp_id}','ComponenteController@destroy')->name('componentes.destroy');
+
+Route::get('/ventas', 'VentasController@index')->name('ventas');
+
+Route::get('/ventas/create','VentasController@create')->name('ventas.create');
+
+Route::post('/ventas/store','VentasController@store')->name('ventas.store');
+
+Route::get('/ventas/edit/{ven_id}','VentasController@edit')->name('ventas.edit');
+
+Route::post('/ventas/update/{ven_id}','VentasController@update')->name('ventas.update');
+
+Route::post('/ventas/destroy/{ven_id}','VentasController@destroy')->name('ventas.destroy');
+
+Route::resource('/facturas', 'FacturasController');
